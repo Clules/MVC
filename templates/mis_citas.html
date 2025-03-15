@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citas</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="http://127.0.0.1:5000/">Inicio</a>
+      <a href="http://127.0.0.1:5000/citas">Agenda una cita</a>
+      <a href="http://127.0.0.1:5000/enfermeros">Enfermeros</a>
+      <a href="http://127.0.0.1:5000/mis-citas">Mis citas</a>
+      <a href="http://127.0.0.1:5000/doctores">Doctores</a>
+    </div>
+    <div class="container enfermeros">
+      <h1 id="main-title">Mis Citas</h1>
+      <div class="main-container">
+        {% for cita in citas %}
+        <div class="cita-card">
+          <div class="cita-info">
+            <h3 class="cita-nombre">{{ cita.nombre }}</h3>
+            <p class="cita-fecha"><strong>Fecha:</strong> {{ cita.fecha }}</p>
+            <p class="cita-hora"><strong>Hora:</strong> {{ cita.hora }}</p>
+            <p class="cita-motivo">
+              <strong>Motivo:</strong> {{ cita.motivo }}
+            </p>
+            <p class="cita-estado">
+              <strong>Estado:</strong> {{ cita.estado }}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

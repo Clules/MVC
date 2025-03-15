@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enfermeros</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="http://127.0.0.1:5000/">Inicio</a>
+      <a href="http://127.0.0.1:5000/citas">Agenda una cita</a>
+      <a href="http://127.0.0.1:5000/enfermeros">Enfermeros</a>
+      <a href="http://127.0.0.1:5000/mis-citas">Mis citas</a>
+      <a href="http://127.0.0.1:5000/doctores">Doctores</a>
+    </div>
+    <div class="container enfermeros">
+      <h1 id="main-title">Enfermeros</h1>
+      <div class="main-container">
+        {% for enfermero in enfermeros %}
+        <div class="enfermeros-info">
+          <div id="">
+            <div>
+              <p id="nombre">{{ enfermero.nombre }}</p>
+              <div id="highlight2">
+                <p id="rol">{{ enfermero.rol }}</p>
+              </div>
+              <p id="doctor">Doctor: Dr. {{ enfermero.doctor_nombre }}</p>
+            </div>
+          </div>
+        </div>
+        <br />
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
